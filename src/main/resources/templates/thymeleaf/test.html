@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://java.sun.com/JSP/Page">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<h1 th:text="${user.name}">hello world</h1>
 
+
+<div>
+    用户名：<input th:id="${user.name}" th:name="${user.name}" th:value="${user.name}"><br/>
+    年龄：<span th:text="${user.age    }"></span><br/>
+    生日：<span th:text="${#dates.format(user.birthDay,'yyyy-MM-dd')}"></span>
+</div>
 </body>
 </html>
