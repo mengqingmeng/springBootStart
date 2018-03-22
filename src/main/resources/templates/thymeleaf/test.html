@@ -19,6 +19,7 @@
     年龄：<span th:text="*{age}"></span><br/>
     生日：<span th:text="*{#dates.format(birthDay,'yyyy-MM-dd')}"></span>
 </div>
+
 <hr>
 <span th:text="${user.desc}">原文本显示，注意：使用thymeleaf的标签后，html标签内的文本不会显示</span>
 <span th:utext="${user.desc}">解析html标签</span>
