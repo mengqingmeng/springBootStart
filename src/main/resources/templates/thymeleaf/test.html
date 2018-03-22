@@ -10,8 +10,17 @@
 
 <div>
     用户名：<input th:id="${user.name}" th:name="${user.name}" th:value="${user.name}"><br/>
-    年龄：<span th:text="${user.age    }"></span><br/>
+    年龄：<span th:text="${user.age}"></span><br/>
     生日：<span th:text="${#dates.format(user.birthDay,'yyyy-MM-dd')}"></span>
 </div>
+<hr>
+<div th:object="${user}">
+    用户名：<input th:id="*{name}" th:name="*{name}" th:value="*{name}"><br/>
+    年龄：<span th:text="*{age}"></span><br/>
+    生日：<span th:text="*{#dates.format(birthDay,'yyyy-MM-dd')}"></span>
+</div>
+<hr>
+<span th:text="${user.desc}">原文本显示，注意：使用thymeleaf的标签后，html标签内的文本不会显示</span>
+<span th:utext="${user.desc}">解析html标签</span>
 </body>
 </html>
