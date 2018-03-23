@@ -7,11 +7,11 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@ControllerAdvice
+//@ControllerAdvice
 public class WebExceptionHandler {
     private static final String ERROR_VIEW="error";
 
-    @ExceptionHandler(value=Exception.class)
+    //@ExceptionHandler(value=Exception.class)
     public Object errorHandler(HttpServletRequest request, HttpServletResponse response, Exception e){
         e.printStackTrace();
         ModelAndView mav = new ModelAndView();
