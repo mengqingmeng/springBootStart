@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import javax.servlet.http.HttpServletRequest;
 
-//@RestControllerAdvice
-public class RestExceptionHandler {
+@RestControllerAdvice
+public class AjaxExceptionHandler {
 
-  //  @ExceptionHandler(value = Exception.class)
+    @ExceptionHandler(value = Exception.class)
     public JSONResult defaultErrorHandler(HttpServletRequest request, Exception e){
         e.printStackTrace();
         return JSONResult.errorException(e.getMessage());

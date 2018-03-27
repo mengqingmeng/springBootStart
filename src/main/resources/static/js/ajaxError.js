@@ -1,0 +1,15 @@
+$.ajax({
+    url:"/err/getAjaxError",
+    type:"POST",
+    async:false,
+    success:function(data){
+        //debugger;
+        if(data.status==200&&data.msg=='ok'){
+            alert('succss')
+        }else{
+            alert('error'+data.msg);
+        }
+    },error:function(response,ajaxOptions,throwError){
+        alert('error'+response)
+    }
+})
