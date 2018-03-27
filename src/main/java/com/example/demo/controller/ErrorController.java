@@ -15,7 +15,7 @@ public class ErrorController {
         return "/thymeleaf/test";
     }
 
-    @RequestMapping("/ajaxError")
+        @RequestMapping("/ajaxError")
     public String ajaxError(){
         return "ajaxError";
     }
