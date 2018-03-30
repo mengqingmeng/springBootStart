@@ -1,6 +1,7 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.mapper.SysUserMapper;
+import com.example.demo.mapper.SysUserMapperCustom;
 import com.example.demo.pojo.SysUser;
 import com.example.demo.service.UserService;
 import com.github.pagehelper.PageHelper;
@@ -15,6 +16,9 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     @Autowired
     SysUserMapper userMapper;
+
+    @Autowired
+    SysUserMapperCustom sysUserMapperCustom; //自定义mapper
 
     @Override
     public void saveUser(SysUser user) {
@@ -52,5 +56,15 @@ public class UserServiceImpl implements UserService {
 
         List<SysUser> userList = userMapper.selectByExample(example);
         return userList;
+    }
+
+    @Override
+    public SysUser getUserCustomMapper(String id) {
+        List<SysUser> userList = sysUserMapperCustom.queryUserSimpleInfoById(id);
+        if (userList!=null && !userList.isEmpty()){
+            return userList.get(0);
+        }
+
+        return null;
     }
 }

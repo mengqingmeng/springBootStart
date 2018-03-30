@@ -12,4 +12,5 @@ public interface UserService {
     public SysUser queryUserById(int id);
     public List<SysUser> queryUserList(SysUser user);
     public List<SysUser> queryUserListPaged(SysUser user,Integer page,Integer pageSize);
+    public SysUser getUserCustomMapper(String id);
 }

@@ -44,4 +44,10 @@ public class CURDController {
         return JSONResult.ok(userList);
     }
 
+    @RequestMapping("getUserCustomMapper")
+    public JSONResult getUserCustomMapper(String id){
+        SysUser user = userService.getUserCustomMapper(id);
+        return JSONResult.ok(user);
+    }
+
 }
