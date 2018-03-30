@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.SysUserMapperCustom">
+  <!--<resultMap id="BaseResultMap" type="com.example.demo.pojo.SysUser">-->
+    <!--&lt;!&ndash;-->
+      <!--WARNING - @mbg.generated-->
+    <!--&ndash;&gt;-->
+    <!--<id column="id" jdbcType="VARCHAR" property="id" />-->
+    <!--<result column="nickname" jdbcType="VARCHAR" property="nickname" />-->
+  <!--</resultMap>-->
+
+  <select id="queryUserSimpleInfoById" resultType="com.example.demo.pojo.SysUser" parameterType="java.lang.String">
+    select * from sys_user WHERE id = #{id,jdbcType=VARCHAR}
+  </select>
+</mapper>

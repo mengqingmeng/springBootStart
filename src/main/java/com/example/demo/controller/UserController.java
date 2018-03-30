@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Date;
 
 @Controller
+@RequestMapping("user")
 public class UserController {
     @Autowired
     Resource resource;
-
 
     @ResponseBody
     @RequestMapping("/getUser")
