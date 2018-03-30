@@ -15,15 +15,15 @@ public class ErrorController {
         return "/thymeleaf/test";
     }
 
-        @RequestMapping("/ajaxError")
-    public String ajaxError(){
-        return "ajaxError";
-    }
+            @RequestMapping("/ajaxError")
+        public String ajaxError(){
+            return "ajaxError";
+        }
 
-    @ResponseBody
-    @RequestMapping("/getAjaxError")
-    public JSONResult getAjaxError(){
-        int a = 1/0;
-        return JSONResult.ok();
-    }
+        @ResponseBody
+        @RequestMapping("/getAjaxError")
+        public JSONResult getAjaxError(){
+            int a = 1/0;
+            return JSONResult.ok();
+        }
 }

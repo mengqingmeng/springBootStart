@@ -1,12 +1,12 @@
 package com.example.demo;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import tk.mybatis.spring.annotation.MapperScan;
 
 @SpringBootApplication
-//扫描mybatis mapper包路径
+//扫描mybatis mapper包路径，注意这里引包，不要引错了
 @MapperScan(basePackages = "com.example.demo.mapper")
 @ComponentScan(basePackages = {"com.example.demo","org.n3r.idworker"})
 public class DemoApplication {
