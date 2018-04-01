@@ -7,6 +7,8 @@ import com.example.demo.service.UserService;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.thymeleaf.util.StringUtils;
 import tk.mybatis.mapper.entity.Example;
 
@@ -18,7 +20,7 @@ public class UserServiceImpl implements UserService {
     SysUserMapper userMapper;
 
     @Autowired
-    SysUserMapperCustom sysUserMapperCustom; //自定义mapper
+    SysUserMapperCustom sysUserMapperCustom; //注入，自定义mapper
 
     @Override
     public void saveUser(SysUser user) {
@@ -46,6 +48,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED) //事物
     public List<SysUser> queryUserListPaged(SysUser user, Integer page, Integer pageSize) {
         PageHelper.startPage(page,pageSize);
         Example example = new Example(SysUser.class);
@@ -53,7 +56,6 @@ public class UserServiceImpl implements UserService {
         if(!StringUtils.isEmptyOrWhitespace(user.getNickname())){
             criteria.andLike("nickname","%"+user.getNickname()+"%");
         }
-
         List<SysUser> userList = userMapper.selectByExample(example);
         return userList;
     }
