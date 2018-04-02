@@ -1,4 +1,4 @@
-package com.example.demo.annoations;
+package com.example.demo.concurrency.annoations;
 
 
 import java.lang.annotation.ElementType;
