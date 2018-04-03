@@ -9,6 +9,7 @@ import java.util.concurrent.Future;
 @Component
 public class AsyncTasks {
 
+    //Future<V>接口是用来获取异步计算结果的,白了就是对具体的Runnable或者Callable对象任务执行的结果进行获取(get()),取消(cancel()),判断是否完成等操作
     @Async
     public Future<Boolean> doTask1() throws InterruptedException {
         long start = System.currentTimeMillis();

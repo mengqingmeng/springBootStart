@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.concurrent.Future;
+import java.util.concurrent.ThreadPoolExecutor;
 
 @RestController
 @RequestMapping("tasks")
@@ -18,6 +19,8 @@ public class DoTask {
     @RequestMapping("test1")
     public JSONResult test1() throws InterruptedException {
         long start = System.currentTimeMillis();
+
+        //Future<V>接口是用来获取异步计算结果的
         Future<Boolean> a = asyncTasks.doTask1();
         Future<Boolean> b = asyncTasks.doTask2();
         Future<Boolean> c = asyncTasks.doTask3();
@@ -30,5 +33,11 @@ public class DoTask {
         String times ="总共耗时："+(end-start)+"毫秒";
         System.out.println(times);
         return JSONResult.ok(times);
+    }
+
+    @RequestMapping("test2")
+    public JSONResult test2(){
+        //ThreadPoolExecutor threadPoolExecutor =
+        return JSONResult.ok();
     }
 }
