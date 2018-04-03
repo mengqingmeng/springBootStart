@@ -1,26 +1,31 @@
-package com.example.demo.concurrency;
+package com.example.demo.concurrency.example.atomic;
 
-import com.example.demo.concurrency.annoations.NotThreadSafe;
+import com.example.demo.concurrency.annoations.ThreadSafe;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.concurrent.*;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.atomic.LongAdder;
 
 /**
- * 不是线程安全的示例
+ * 是线程安全的示例
  */
 @Slf4j
-@NotThreadSafe
-public class ConcurrencyTest {
+@ThreadSafe
+public class AtomicExample3 {
 
     //请求总数
     public static int clientTotal = 5000;
     //同时并发执行的线程总数
     public static int threadTotal = 200;
 
-    public static int count = 0;
+    public static LongAdder count = new LongAdder();
 
     private static void add(){
-        count ++;
+        count.increment();
     }
 
     public static void main(String[] args) throws InterruptedException {
