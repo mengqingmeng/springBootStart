@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.pojo.SysUser;
 import com.example.demo.service.UserService;
 import com.example.demo.utils.JSONResult;
+import lombok.extern.slf4j.Slf4j;
 import org.n3r.idworker.Sid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,9 +16,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("mybatis")
+@Slf4j
 public class CURDController {
-
-    final static Logger log = LoggerFactory.getLogger(CURDController.class);
 
     @Autowired
     UserService userService;
