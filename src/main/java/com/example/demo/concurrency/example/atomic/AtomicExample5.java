@@ -19,7 +19,7 @@ public class AtomicExample5 {
 
     //字段必须用volatile修饰，且不是static
     @Getter
-    public volatile int count = 100;
+    public int count = 100;
 
     public static void main(String[] args) {
         AtomicExample5 atomicExample5 = new AtomicExample5();

@@ -53,6 +53,6 @@ public class AtomicExample6 {
 
         countDownLatch.await();//保证coutDown必须减为0
         executorService.shutdown();
-        log.info("isHappened:"+isHappened.get());//每次运行的结果，有可能不同，所以线程不安全
+        log.info("isHappened:"+isHappened.get());
     }
 }
