@@ -16,6 +16,15 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Slf4j
 @ThreadSafe
 public class CountExample2 {
+    /**
+     * 这里有个形象的比喻：汽车去停车场停车
+     *  clientTotal：汽车的数量
+     *  threadTotal：停车位数量，
+     *  ExecutorService：停车场的多个门
+     *  Semaphore：停车场管理员
+     *  管理员，在每停一辆车时，将剩余车位数量-1，出来一辆车时，将剩余车位数量+1
+     *  （假设这个管理员会分身术，停车场的门，都是他一个人管理）
+     */
 
     //请求总数
     public static int clientTotal = 5000;
