@@ -4,6 +4,7 @@ import com.example.demo.concurrency.annoations.NotThreadSafe;
 import com.google.common.collect.Maps;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -22,7 +23,7 @@ public class ImmutableExample1 {
      */
     private static final Integer a = 1;
     private static final String b = "b";
-    private static final Map<Integer,Integer> map = Maps.newHashMap();
+    private static final Map<Integer,Integer> map =Maps.newHashMap();
 
     static {
         map.put(1,2);
