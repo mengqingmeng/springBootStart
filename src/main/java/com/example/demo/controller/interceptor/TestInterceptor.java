@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 /**
- *定义拦截器
+ *定义拦截器,和过滤器还是有点不一样滴
  */
 @Component
 public class TestInterceptor implements HandlerInterceptor {

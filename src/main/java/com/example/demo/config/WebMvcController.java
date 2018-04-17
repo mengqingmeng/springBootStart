@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
- * 配置拦截器
+ * 配置拦截器,和过滤器还是有点不一样滴
  */
 @Configuration
 public class WebMvcController extends WebMvcConfigurationSupport{
