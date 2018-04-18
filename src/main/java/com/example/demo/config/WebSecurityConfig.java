@@ -10,8 +10,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 /**
  * web security配置类
  */
-//@Configuration
-//@EnableWebSecurity
+@Configuration
+@EnableWebSecurity
 public class WebSecurityConfig  extends WebSecurityConfigurerAdapter{
 
     @Override
@@ -23,7 +23,7 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter{
          * .antMatchers("/admin/**").hasRole("ROLE_ADMIN")，
          * 也可以设置admin文件夹下的文件可以有多个角色来访问，写法如下：.antMatchers("/admin/**").hasAnyRole("ROLE_ADMIN","ROLE_USER")
          */
-        http.authorizeRequests().antMatchers("/","/login").permitAll()  //根目录和/login不拦截
+        http.authorizeRequests().antMatchers("/*","/login").permitAll()  //根目录和/login不拦截
         .anyRequest().authenticated()
         .and()
         .formLogin().loginPage("/login")    //登陆页面路径为/login
@@ -32,20 +32,20 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter{
         .and()
         .logout()
         .permitAll();
-        //super.configure(http);
+        super.configure(http);
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
                 .withUser("admin").password("admin").roles("USER");
-        //super.configure(auth);
+        super.configure(auth);
     }
 
     //忽略静态文件的请求
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/resource/static/**");
-        //super.configure(web);
+        super.configure(web);
     }
 }
