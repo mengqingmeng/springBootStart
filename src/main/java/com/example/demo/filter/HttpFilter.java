@@ -1,5 +1,6 @@
 package com.example.demo.filter;
 
+import com.example.demo.threadLocal.RequestHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.context.request.RequestContextHolder;
 
@@ -18,6 +19,7 @@ public class HttpFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
+        RequestHolder.add(Thread.currentThread().getId());
         log.info("do filter,{},{}",Thread.currentThread().getId(),request.getServletPath());
         filterChain.doFilter(servletRequest,servletResponse);
     }

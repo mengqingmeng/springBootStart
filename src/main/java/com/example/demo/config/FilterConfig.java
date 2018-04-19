@@ -11,7 +11,7 @@ public class FilterConfig {
     public FilterRegistrationBean httpFilter(){
         FilterRegistrationBean registrationBean = new FilterRegistrationBean();
         registrationBean.setFilter( new HttpFilter());
-        registrationBean.addUrlPatterns("/login/*");
+        registrationBean.addUrlPatterns("/threadLocal/*");
         return registrationBean;
     }
 }
