@@ -32,7 +32,8 @@ public class CountExample1 {
         //信号量
         final Semaphore semaphore = new Semaphore(threadTotal);
         //计数器
-        final CountDownLatch countDownLatch = new CountDownLatch(clientTotal);
+        final CountDownLatch countDownLatch = new CountDownLatch(clientTotal);//保证这些请求被处理完成
+
         for(int i=0;i<clientTotal;i++){
             executorService.execute(()->{
                 try {
@@ -46,7 +47,7 @@ public class CountExample1 {
             });
         }
 
-        countDownLatch.await();//保证coutDown必须减为0
+        countDownLatch.await();//保证coutDown必须减为0；主线程在这个方法上阻塞，知道所有线程完成
         executorService.shutdown();
         log.info("count:"+count);//每次运行的结果，有可能不同，所以线程不安全
     }

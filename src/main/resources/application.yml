@@ -1,0 +1,68 @@
+spring:
+  freemarker:
+    charset: UTF-8
+    cache: false
+    expose-request-attributes: true
+    request-context-attribute: request
+    content-type: text/html
+    expose-session-attributes: true
+    template-loader-path: classpath:/templates
+    suffix: .ftl
+    check-template-location: true
+  datasource:
+    password: mqm320382
+    druid:
+      test-on-borrow: true
+      stat-view-servlet:
+        allow: true
+      max-active: 20
+      initial-size: 1
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springBoot
+    username: root
+  messages:
+    basename: i18n/messages
+    encoding: UTF-8
+  thymeleaf:
+    mode: HTML5
+    cache: false
+    prefix: classpath:/templates/   
+    servlet:
+      content-type: text/html
+    encoding: UTF-8
+    suffix: .html
+  mvc:
+    static-path-pattern: /static/**
+  devtools:
+    restart:
+      additional-paths: src/main/java
+      exclude: static/**,public/**,WEB-INF/**
+      enabled: true
+
+server:
+  port: 8088
+
+pagehelper:
+  supportMethodsArguments: true
+  reasonable: true
+  helperDialect: mysql
+  params: count=countSql
+
+restart:
+  include:
+    pagehelper: /pagehelper-[\\w-\\.]+jar
+    mapper: /mapper-[\\w-\\.]+jar
+
+spirng:
+  datasource:
+    driud:
+      min-idle: 1
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.demo.pojo
+
+mapper:
+  identity: MYSQL
+  not-empty: false
+  mappers: com.example.demo.utils.MyMapper

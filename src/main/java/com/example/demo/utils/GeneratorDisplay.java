@@ -9,6 +9,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+//根据表结构生成xml和pojo
 public class GeneratorDisplay {
     public void generator() throws Exception{
 
