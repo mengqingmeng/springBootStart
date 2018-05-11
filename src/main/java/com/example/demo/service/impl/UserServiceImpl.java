@@ -2,6 +2,8 @@ package com.example.demo.service.impl;
 
 import com.example.demo.mapper.SysUserMapper;
 import com.example.demo.mapper.SysUserMapperCustom;
+import com.example.demo.mapper.UserMapper;
+import com.example.demo.model.User;
 import com.example.demo.pojo.SysUser;
 import com.example.demo.service.UserService;
 import com.github.pagehelper.PageHelper;
@@ -18,6 +20,9 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     @Autowired
     SysUserMapper userMapper;
+
+    @Autowired
+    UserMapper shiroUserMapper;
 
     @Autowired
     SysUserMapperCustom sysUserMapperCustom; //注入，自定义mapper
@@ -68,5 +73,10 @@ public class UserServiceImpl implements UserService {
         }
 
         return null;
+    }
+
+    @Override
+    public User findByUserName(String userName) {
+        return shiroUserMapper.findByUserName(userName);
     }
 }

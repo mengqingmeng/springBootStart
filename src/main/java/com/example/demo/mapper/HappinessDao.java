@@ -21,6 +21,7 @@ public interface HappinessDao {
      *  *
      */
 
+    //将注解版本注释掉，用mapper.xml 实现xml版本
     //@Select("SELECT * FROM happiness WHERE city = #{city}")
     List<Happiness> findHappinessByCity(@Param("city") String city);
 
