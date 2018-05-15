@@ -30,7 +30,6 @@
 
 
 		<table tableName="sys_user"></table>
-		<table tableName="shiro_user"></table>
 
     </context>
 </generatorConfiguration>
