@@ -30,6 +30,6 @@
 
 
 		<table tableName="sys_user"></table>
-		 
+
     </context>
 </generatorConfiguration>
