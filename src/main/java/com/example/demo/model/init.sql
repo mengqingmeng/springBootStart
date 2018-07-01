@@ -1,5 +1,5 @@
 -- 权限表 --
-CREATE TABLE permision(
+CREATE TABLE permission(
   pid int(11) not null auto_increment,
   name varchar(255) not null default '',
   url varchar(255) default '',

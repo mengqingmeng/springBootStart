@@ -18,7 +18,7 @@ spring:
       max-active: 20
       initial-size: 1
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/springBoot
+    url: jdbc:mysql://localhost:3306/springBoot?characterEncoding=UTF-8
     username: root
     type: com.alibaba.druid.pool.DruidDataSource
   messages:
@@ -62,7 +62,7 @@ spirng:
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.example.demo.pojo
+  type-aliases-package: com.example.demo.model
 
 mapper:
   identity: MYSQL

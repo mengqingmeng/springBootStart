@@ -50,6 +50,7 @@ public class ShiroConfig {
         return manager;
     }
 
+    // 设置自定义的密码比较器
     @Bean("authRealm")
     public AuthRealm authRealm(@Qualifier("credentialMatcher") CredentialMatcher matcher){
         AuthRealm authRealm = new AuthRealm();
@@ -58,6 +59,7 @@ public class ShiroConfig {
         return  authRealm;
     }
 
+    //声明密码比较器
     @Bean("credentialMatcher")
     public CredentialMatcher credentialMatcher(){
         return new CredentialMatcher();

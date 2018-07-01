@@ -6,9 +6,10 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authc.credential.SimpleCredentialsMatcher;
 
 
-//自定义密码校验
+//自定义密码比较器
 public class CredentialMatcher extends SimpleCredentialsMatcher {
 
+    // token是用户请求的，info是数据库存储的
     @Override
     public boolean doCredentialsMatch(AuthenticationToken token, AuthenticationInfo info) {
         UsernamePasswordToken usernamePasswordToken = (UsernamePasswordToken) token;

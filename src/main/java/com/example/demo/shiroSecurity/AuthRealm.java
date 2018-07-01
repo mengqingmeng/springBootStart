@@ -24,7 +24,7 @@ public class AuthRealm extends AuthorizingRealm {
 
     //用于授权
     @Override
-    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
+        protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         User user = (User) principalCollection.fromRealm(this.getClass().getName()).iterator().next();
 
         List<String> permissionList = new ArrayList<String>();

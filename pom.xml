@@ -146,6 +146,7 @@
 			<!--<artifactId>spring-cloud-starter-eureka-server</artifactId>-->
 		<!--</dependency>-->
 
+		<!--shiro-->
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-core</artifactId>
@@ -183,7 +184,7 @@
 			<artifactId>javax.servlet-api</artifactId>
 		</dependency>
 
-		<!--el支持-->
+		<!--jstl支持-->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
